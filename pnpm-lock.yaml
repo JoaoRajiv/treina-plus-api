@@ -41,7 +41,7 @@ importers:
       typescript:
         specifier: 5.9.3
         version: 5.9.3
-      ui@5.2.5:
+      ui:
         specifier: link:@fastify/swagger/ui@5.2.5
         version: link:@fastify/swagger/ui@5.2.5
       zod:
