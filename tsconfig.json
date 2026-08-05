@@ -1,13 +1,13 @@
 {
-  "compilerOptions": {
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
-    "skipLibCheck": true,
-    "strict": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "tsBuildInfoFile": "./dist/tsconfig.tsbuildinfo",
-    "target": "es2024"
-  },
-  "include": ["src"]
+	"compilerOptions": {
+		"module": "nodenext",
+		"moduleResolution": "nodenext",
+		"skipLibCheck": true,
+		"strict": true,
+		"outDir": "./dist",
+		"rootDir": "./src",
+		"tsBuildInfoFile": "./dist/tsconfig.tsbuildinfo",
+		"target": "es2024"
+	},
+	"include": ["src"]
 }

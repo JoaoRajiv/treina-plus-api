@@ -1,0 +1,18 @@
+[     500ms] [INFO] @scalar/api-reference@1.44.20 @ http://localhost:8097/docs/js/scalar.js:37015
+[     616ms] [INFO] loadDocument: 96 ms @ http://localhost:8097/docs/js/scalar.js:34362
+[     618ms] [INFO] deepClone: 1 ms @ http://localhost:8097/docs/js/scalar.js:34360
+[     618ms] [INFO] initialize: 1 ms @ http://localhost:8097/docs/js/scalar.js:34360
+[     620ms] [INFO] upgrade: 1 ms @ http://localhost:8097/docs/js/scalar.js:34360
+[     626ms] [INFO] bundle: 5 ms @ http://localhost:8097/docs/js/scalar.js:34362
+[     630ms] [INFO] coerceValue: 4 ms @ http://localhost:8097/docs/js/scalar.js:34360
+[     632ms] [INFO] mergeObjects: 1 ms @ http://localhost:8097/docs/js/scalar.js:34360
+[     778ms] [INFO] addDocument: 163 ms @ http://localhost:8097/docs/js/scalar.js:34362
+[    1140ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8097/favicon.ico:0
+[   25715ms] [INFO] loadDocument: 40 ms @ http://localhost:8097/docs/js/scalar.js:34362
+[   25718ms] [INFO] deepClone: 1 ms @ http://localhost:8097/docs/js/scalar.js:34360
+[   25720ms] [INFO] initialize: 1 ms @ http://localhost:8097/docs/js/scalar.js:34360
+[   25720ms] [INFO] upgrade: 0 ms @ http://localhost:8097/docs/js/scalar.js:34360
+[   25732ms] [INFO] bundle: 11 ms @ http://localhost:8097/docs/js/scalar.js:34362
+[   25746ms] [INFO] coerceValue: 14 ms @ http://localhost:8097/docs/js/scalar.js:34360
+[   25749ms] [INFO] mergeObjects: 3 ms @ http://localhost:8097/docs/js/scalar.js:34360
+[   25777ms] [INFO] addDocument: 63 ms @ http://localhost:8097/docs/js/scalar.js:34362

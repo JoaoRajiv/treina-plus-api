@@ -1,0 +1,276 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - navigation "Sidebar for Bootcamp Treinos API" [ref=e5]:
+      - button "Bootcamp Treinos API" [ref=e8] [cursor=pointer]
+      - generic [ref=e13]:
+        - search [ref=e14] [cursor=pointer]:
+          - generic [ref=e18]:
+            - generic [ref=e19]: Open Search
+            - text: Search
+          - generic [ref=e20]:
+            - generic [ref=e21]: "Keyboard Shortcut:"
+            - generic [ref=e22]:
+              - generic [ref=e23]: CTRL
+              - text: ⌃ k
+        - button "Ask AI" [ref=e24] [cursor=pointer]
+      - list [ref=e28]:
+        - listitem [ref=e29]:
+          - button [ref=e30] [cursor=pointer]
+        - listitem [ref=e32]:
+          - button "Workout Plan Close Group" [expanded] [ref=e34] [cursor=pointer]:
+            - generic [ref=e35]: Workout Plan
+            - generic [ref=e36]: Close Group
+          - list [ref=e41]:
+            - listitem [ref=e42]:
+              - 'button "Create a new workout plan HTTP Method: POST" [ref=e43] [cursor=pointer]':
+                - generic [ref=e48]: Create a new workout plan
+                - generic [ref=e49]:
+                  - generic [ref=e50]: "HTTP Method:"
+                  - text: POST
+            - listitem [ref=e51]:
+              - 'button "Start a workout session for a specific workout day HTTP Method: POST" [ref=e52] [cursor=pointer]':
+                - generic [ref=e57]: Start a workout session for a specific workout day
+                - generic [ref=e58]:
+                  - generic [ref=e59]: "HTTP Method:"
+                  - text: POST
+            - listitem [ref=e60]:
+              - 'button "Update a specific workout session HTTP Method: PATCH" [ref=e61] [cursor=pointer]':
+                - generic [ref=e66]: Update a specific workout session
+                - generic [ref=e67]:
+                  - generic [ref=e68]: "HTTP Method:"
+                  - text: PATCH
+        - listitem [ref=e69]:
+          - button "Home Open Group" [ref=e71] [cursor=pointer]:
+            - generic [ref=e72]: Home
+            - generic [ref=e73]: Open Group
+        - listitem [ref=e78]:
+          - 'button "/ HTTP Method: GET" [ref=e79] [cursor=pointer]':
+            - generic [ref=e80]: /
+            - generic [ref=e81]:
+              - generic [ref=e82]: "HTTP Method:"
+              - text: GET
+        - listitem [ref=e83]:
+          - 'button "/api/auth/{*} HTTP Method: GET" [ref=e84] [cursor=pointer]':
+            - generic [ref=e85]: "/api/auth/{*}"
+            - generic [ref=e86]:
+              - generic [ref=e87]: "HTTP Method:"
+              - text: GET
+        - listitem [ref=e88]:
+          - 'button "/api/auth/{*} HTTP Method: POST" [ref=e89] [cursor=pointer]':
+            - generic [ref=e90]: "/api/auth/{*}"
+            - generic [ref=e91]:
+              - generic [ref=e92]: "HTTP Method:"
+              - text: POST
+      - generic [ref=e94]:
+        - link "Open API Client" [ref=e95] [cursor=pointer]:
+          - /url: https://client.scalar.com/?url=http%3A%2F%2Flocalhost%3A8097%2Fswagger.json&integration=fastify&utm_source=api-reference&utm_medium=button&utm_campaign=sidebar
+        - generic [ref=e98]:
+          - link "Powered by Scalar" [ref=e100] [cursor=pointer]:
+            - /url: https://www.scalar.com
+          - button [ref=e101] [cursor=pointer]:
+            - generic "Set dark mode" [ref=e104]
+    - main "Open API Documentation for Bootcamp Treinos API" [ref=e111]:
+      - generic [ref=e112]:
+        - generic "Developer Tools" [ref=e113]:
+          - generic [ref=e114]:
+            - button "Developer Tools" [ref=e117] [cursor=pointer]
+            - button "Share" [ref=e122] [cursor=pointer]
+            - button "Generate SDKs" [ref=e127] [cursor=pointer]
+            - button "Configure" [ref=e132] [cursor=pointer]
+        - region "Introduction" [ref=e137]:
+          - generic [ref=e138]:
+            - generic [ref=e139]:
+              - generic [ref=e140]: v1.0.0
+              - generic [ref=e141]: OAS 3.0.3
+            - heading "Bootcamp Treinos API" [level=1] [ref=e144]
+            - generic [ref=e146]:
+              - generic [ref=e147]:
+                - generic [ref=e148]:
+                  - button "Download OpenAPI Document" [ref=e149] [cursor=pointer]
+                  - button "Download OpenAPI Document" [ref=e151] [cursor=pointer]
+                - paragraph [ref=e156]: API para gerenciamento de treinos e exercícios
+              - generic [ref=e159]:
+                - generic [ref=e160]:
+                  - generic [ref=e161]: Server
+                  - generic [ref=e163]:
+                    - generic [ref=e164]: "Server:"
+                    - generic [ref=e165]: http://localhost:8080
+                  - paragraph [ref=e167]: Servidor local
+                - generic [ref=e169]:
+                  - generic [ref=e170]: Client Libraries
+                  - tablist "Client Libraries" [ref=e171]:
+                    - generic [ref=e172]:
+                      - tab "Shell" [selected] [ref=e173] [cursor=pointer]
+                      - tab "Ruby" [ref=e178] [cursor=pointer]
+                      - tab "Node.js" [ref=e183] [cursor=pointer]
+                      - tab "PHP" [ref=e189] [cursor=pointer]
+                      - tab "Python" [ref=e194] [cursor=pointer]
+                      - button "Select from all clients" [ref=e200] [cursor=pointer]
+                  - tabpanel "Shell" [ref=e206]: Shell Curl
+        - region [ref=e207]:
+          - generic [ref=e210]:
+            - heading "Workout Plan" [level=2] [ref=e212]
+            - button "Copy link" [ref=e213] [cursor=pointer]
+          - group "Workout Plan Operations" [ref=e222]:
+            - generic [ref=e224]:
+              - generic [ref=e225]: Workout Plan
+              - text: Operations
+            - list "Workout Plan endpoints" [ref=e227]:
+              - listitem [ref=e228]:
+                - generic [ref=e229] [cursor=pointer]:
+                  - generic [ref=e230]: post
+                  - generic [ref=e231]: /workout-plans
+              - listitem [ref=e232]:
+                - generic [ref=e233] [cursor=pointer]:
+                  - generic [ref=e234]: post
+                  - generic [ref=e235]: "/workout-plans/{workoutPlanId}/days/{workoutDayId}/sessions"
+              - listitem [ref=e236]:
+                - generic [ref=e237] [cursor=pointer]:
+                  - generic [ref=e238]: patch
+                  - generic [ref=e239]: "/workout-plans/{workoutPlanId}/days/{workoutDayId}/sessions/{workoutSessionId}"
+        - region [ref=e240]:
+          - generic [ref=e243]:
+            - heading "Home (Collapsed)" [level=2] [ref=e245]:
+              - text: Home
+              - generic [ref=e246]: (Collapsed)
+            - button "Copy link" [ref=e247] [cursor=pointer]
+          - group "Home Operations" [ref=e256]:
+            - generic [ref=e258]:
+              - generic [ref=e259]: Home
+              - text: Operations
+            - list "Home endpoints" [ref=e261]:
+              - listitem [ref=e262]:
+                - generic [ref=e263] [cursor=pointer]:
+                  - generic [ref=e264]: get
+                  - generic [ref=e265]: "/home/{date}"
+          - button "Show all Home endpoints" [ref=e266] [cursor=pointer]: Show More
+        - region [ref=e271]:
+          - generic [ref=e272]:
+            - generic [ref=e276]:
+              - heading / [level=3] [ref=e278]
+              - button "Copy link" [ref=e279] [cursor=pointer]
+            - generic [ref=e284]:
+              - generic [ref=e286]:
+                - group "Operation Description"
+                - generic [ref=e287]:
+                  - generic [ref=e288]: Responses
+                  - list "Responses" [ref=e289]:
+                    - listitem [ref=e290]:
+                      - generic [ref=e292]:
+                        - generic [ref=e295]:
+                          - text: "200"
+                          - button [ref=e296] [cursor=pointer]
+                        - paragraph [ref=e303]: Default Response
+              - group "Request Example for get/" [ref=e306]:
+                - generic [ref=e307]:
+                  - generic [ref=e308]:
+                    - generic [ref=e309]: Request Example for
+                    - generic [ref=e310]: get
+                    - generic [ref=e311]: /
+                  - button "Shell Curl" [ref=e314] [cursor=pointer]
+                - generic [ref=e320]:
+                  - code [ref=e323]:
+                    - generic [ref=e324]: curl http://localhost:8080/
+                  - button [ref=e325] [cursor=pointer]
+                - generic [ref=e334]:
+                  - textbox "Ask AI Agent" [ref=e339] [cursor=pointer]
+                  - button "Test Request (get /)" [ref=e340] [cursor=pointer]:
+                    - generic [ref=e344]: Test Request
+                    - generic [ref=e345]: (get /)
+        - region [ref=e347]:
+          - generic [ref=e348]:
+            - generic [ref=e352]:
+              - 'heading "/api/auth/{*}" [level=3] [ref=e354]'
+              - button "Copy link" [ref=e355] [cursor=pointer]
+            - generic [ref=e360]:
+              - generic [ref=e362]:
+                - group "Operation Description"
+                - generic [ref=e363]:
+                  - generic [ref=e364]: Path Parameters
+                  - list "Path Parameters" [ref=e365]:
+                    - listitem [ref=e366]:
+                      - generic [ref=e369]:
+                        - generic [ref=e371]:
+                          - text: "*"
+                          - button [ref=e372] [cursor=pointer]
+                        - generic [ref=e378]:
+                          - generic [ref=e379]: "Type:"
+                          - text: string
+                        - generic [ref=e380]: required
+                - generic [ref=e381]:
+                  - generic [ref=e382]: Responses
+                  - list "Responses" [ref=e383]:
+                    - listitem [ref=e384]:
+                      - generic [ref=e386]:
+                        - generic [ref=e389]:
+                          - text: "200"
+                          - button [ref=e390] [cursor=pointer]
+                        - paragraph [ref=e397]: Default Response
+              - 'group "Request Example for get/api/auth/{*}" [ref=e400]':
+                - generic [ref=e401]:
+                  - generic [ref=e402]:
+                    - generic [ref=e403]: Request Example for
+                    - generic [ref=e404]: get
+                    - generic [ref=e405]:
+                      - text: /api/auth/
+                      - emphasis [ref=e406]: "{*}"
+                  - button "Shell Curl" [ref=e409] [cursor=pointer]
+                - generic [ref=e415]:
+                  - code [ref=e418]:
+                    - generic [ref=e419]: "curl 'http://localhost:8080/api/auth/{*}'"
+                  - button [ref=e420] [cursor=pointer]
+                - generic [ref=e429]:
+                  - textbox "Ask AI Agent" [ref=e434] [cursor=pointer]
+                  - 'button "Test Request (get /api/auth/{*})" [ref=e435] [cursor=pointer]':
+                    - generic [ref=e439]: Test Request
+                    - generic [ref=e440]: "(get /api/auth/{*})"
+        - region [ref=e442]:
+          - generic [ref=e443]:
+            - generic [ref=e447]:
+              - 'heading "/api/auth/{*}" [level=3] [ref=e449]'
+              - button "Copy link" [ref=e450] [cursor=pointer]
+            - generic [ref=e455]:
+              - generic [ref=e457]:
+                - group "Operation Description"
+                - generic [ref=e458]:
+                  - generic [ref=e459]: Path Parameters
+                  - list "Path Parameters" [ref=e460]:
+                    - listitem [ref=e461]:
+                      - generic [ref=e464]:
+                        - generic [ref=e466]:
+                          - text: "*"
+                          - button [ref=e467] [cursor=pointer]
+                        - generic [ref=e473]:
+                          - generic [ref=e474]: "Type:"
+                          - text: string
+                        - generic [ref=e475]: required
+                - generic [ref=e476]:
+                  - generic [ref=e477]: Responses
+                  - list "Responses" [ref=e478]:
+                    - listitem [ref=e479]:
+                      - generic [ref=e481]:
+                        - generic [ref=e484]:
+                          - text: "200"
+                          - button [ref=e485] [cursor=pointer]
+                        - paragraph [ref=e492]: Default Response
+              - 'group "Request Example for post/api/auth/{*}" [ref=e495]':
+                - generic [ref=e496]:
+                  - generic [ref=e497]:
+                    - generic [ref=e498]: Request Example for
+                    - generic [ref=e499]: post
+                    - generic [ref=e500]:
+                      - text: /api/auth/
+                      - emphasis [ref=e501]: "{*}"
+                  - button "Shell Curl" [ref=e504] [cursor=pointer]
+                - generic [ref=e510]:
+                  - code [ref=e513]:
+                    - generic [ref=e514]: "curl 'http://localhost:8080/api/auth/{*}' \\"
+                    - generic [ref=e515]: "--request POST"
+                  - button [ref=e517] [cursor=pointer]
+                - generic [ref=e526]:
+                  - textbox "Ask AI Agent" [ref=e531] [cursor=pointer]
+                  - 'button "Test Request (post /api/auth/{*})" [ref=e532] [cursor=pointer]':
+                    - generic [ref=e536]: Test Request
+                    - generic [ref=e537]: "(post /api/auth/{*})"
+  - region "Notifications alt+T":
+    - list

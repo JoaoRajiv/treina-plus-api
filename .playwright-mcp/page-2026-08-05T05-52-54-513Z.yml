@@ -1,0 +1,778 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - navigation "Sidebar for Bootcamp Treinos API" [ref=e5]:
+      - generic [ref=e6]:
+        - button "Bootcamp Treinos API" [expanded] [ref=e8] [cursor=pointer]
+        - listbox "Bootcamp Treinos API" [active] [ref=e1348]:
+          - option "Bootcamp Treinos API" [selected] [ref=e1349] [cursor=pointer]
+          - option "Auth API" [ref=e1355] [cursor=pointer]
+      - generic [ref=e13]:
+        - search [ref=e14] [cursor=pointer]:
+          - generic [ref=e18]:
+            - generic [ref=e19]: Open Search
+            - text: Search
+          - generic [ref=e20]:
+            - generic [ref=e21]: "Keyboard Shortcut:"
+            - generic [ref=e22]:
+              - generic [ref=e23]: CTRL
+              - text: ⌃ k
+        - button "Ask AI" [ref=e24] [cursor=pointer]
+      - list [ref=e28]:
+        - listitem [ref=e29]:
+          - button [ref=e30] [cursor=pointer]
+        - listitem [ref=e32]:
+          - button "Workout Plan Close Group" [expanded] [ref=e34] [cursor=pointer]:
+            - generic [ref=e35]: Workout Plan
+            - generic [ref=e36]: Close Group
+          - list [ref=e41]:
+            - listitem [ref=e42]:
+              - 'button "Create a new workout plan HTTP Method: POST" [ref=e43] [cursor=pointer]':
+                - generic [ref=e48]: Create a new workout plan
+                - generic [ref=e49]:
+                  - generic [ref=e50]: "HTTP Method:"
+                  - text: POST
+            - listitem [ref=e51]:
+              - 'button "Start a workout session for a specific workout day HTTP Method: POST" [ref=e52] [cursor=pointer]':
+                - generic [ref=e57]: Start a workout session for a specific workout day
+                - generic [ref=e58]:
+                  - generic [ref=e59]: "HTTP Method:"
+                  - text: POST
+            - listitem [ref=e60]:
+              - 'button "Update a specific workout session HTTP Method: PATCH" [ref=e61] [cursor=pointer]':
+                - generic [ref=e66]: Update a specific workout session
+                - generic [ref=e67]:
+                  - generic [ref=e68]: "HTTP Method:"
+                  - text: PATCH
+        - listitem [ref=e69]:
+          - button "Home Open Group" [ref=e71] [cursor=pointer]:
+            - generic [ref=e72]: Home
+            - generic [ref=e73]: Open Group
+        - listitem [ref=e78]:
+          - 'button "/ HTTP Method: GET" [ref=e79] [cursor=pointer]':
+            - generic [ref=e80]: /
+            - generic [ref=e81]:
+              - generic [ref=e82]: "HTTP Method:"
+              - text: GET
+        - listitem [ref=e83]:
+          - 'button "/api/auth/{*} HTTP Method: GET" [ref=e84] [cursor=pointer]':
+            - generic [ref=e85]: "/api/auth/{*}"
+            - generic [ref=e86]:
+              - generic [ref=e87]: "HTTP Method:"
+              - text: GET
+        - listitem [ref=e88]:
+          - 'button "/api/auth/{*} HTTP Method: POST" [ref=e89] [cursor=pointer]':
+            - generic [ref=e90]: "/api/auth/{*}"
+            - generic [ref=e91]:
+              - generic [ref=e92]: "HTTP Method:"
+              - text: POST
+      - generic [ref=e94]:
+        - link "Open API Client" [ref=e95] [cursor=pointer]:
+          - /url: https://client.scalar.com/?url=http%3A%2F%2Flocalhost%3A8097%2Fswagger.json&integration=fastify&utm_source=api-reference&utm_medium=button&utm_campaign=sidebar
+        - generic [ref=e98]:
+          - link "Powered by Scalar" [ref=e100] [cursor=pointer]:
+            - /url: https://www.scalar.com
+          - button [ref=e101] [cursor=pointer]:
+            - generic "Set dark mode" [ref=e104]
+    - main "Open API Documentation for Bootcamp Treinos API" [ref=e111]:
+      - generic [ref=e112]:
+        - generic "Developer Tools" [ref=e113]:
+          - generic [ref=e114]:
+            - button "Developer Tools" [ref=e117] [cursor=pointer]
+            - button "Share" [ref=e122] [cursor=pointer]
+            - button "Generate SDKs" [ref=e127] [cursor=pointer]
+            - button "Configure" [ref=e132] [cursor=pointer]
+        - region "Introduction" [ref=e137]:
+          - generic [ref=e138]:
+            - generic [ref=e139]:
+              - generic [ref=e140]: v1.0.0
+              - generic [ref=e141]: OAS 3.0.3
+            - heading "Bootcamp Treinos API" [level=1] [ref=e144]
+            - generic [ref=e146]:
+              - generic [ref=e147]:
+                - generic [ref=e148]:
+                  - button "Download OpenAPI Document" [ref=e149] [cursor=pointer]
+                  - button "Download OpenAPI Document" [ref=e151] [cursor=pointer]
+                - paragraph [ref=e156]: API para gerenciamento de treinos e exercícios
+              - generic [ref=e159]:
+                - generic [ref=e160]:
+                  - generic [ref=e161]: Server
+                  - generic [ref=e163]:
+                    - generic [ref=e164]: "Server:"
+                    - generic [ref=e165]: http://localhost:8080
+                  - paragraph [ref=e167]: Servidor local
+                - generic [ref=e169]:
+                  - generic [ref=e170]: Client Libraries
+                  - tablist "Client Libraries" [ref=e171]:
+                    - generic [ref=e172]:
+                      - tab "Shell" [selected] [ref=e173] [cursor=pointer]
+                      - tab "Ruby" [ref=e178] [cursor=pointer]
+                      - tab "Node.js" [ref=e183] [cursor=pointer]
+                      - tab "PHP" [ref=e189] [cursor=pointer]
+                      - tab "Python" [ref=e194] [cursor=pointer]
+                      - button "Select from all clients" [ref=e200] [cursor=pointer]
+                  - tabpanel "Shell" [ref=e206]: Shell Curl
+        - region [ref=e207]:
+          - generic [ref=e210]:
+            - heading "Workout Plan" [level=2] [ref=e212]
+            - button "Copy link" [ref=e213] [cursor=pointer]
+          - group "Workout Plan Operations" [ref=e222]:
+            - generic [ref=e224]:
+              - generic [ref=e225]: Workout Plan
+              - text: Operations
+            - list "Workout Plan endpoints" [ref=e227]:
+              - listitem [ref=e228]:
+                - generic [ref=e229] [cursor=pointer]:
+                  - generic [ref=e230]: post
+                  - generic [ref=e231]: /workout-plans
+              - listitem [ref=e232]:
+                - generic [ref=e233] [cursor=pointer]:
+                  - generic [ref=e234]: post
+                  - generic [ref=e235]: "/workout-plans/{workoutPlanId}/days/{workoutDayId}/sessions"
+              - listitem [ref=e236]:
+                - generic [ref=e237] [cursor=pointer]:
+                  - generic [ref=e238]: patch
+                  - generic [ref=e239]: "/workout-plans/{workoutPlanId}/days/{workoutDayId}/sessions/{workoutSessionId}"
+          - generic [ref=e538]:
+            - region [ref=e539]:
+              - generic [ref=e540]:
+                - generic [ref=e544]:
+                  - heading "Create a new workout plan" [level=3] [ref=e546]
+                  - button "Copy link" [ref=e547] [cursor=pointer]
+                - generic [ref=e552]:
+                  - generic [ref=e554]:
+                    - group "Operation Description"
+                    - group "Request Body" [ref=e555]:
+                      - generic [ref=e556]:
+                        - generic [ref=e557]: Body
+                        - generic [ref=e558]:
+                          - generic [ref=e559]: required
+                          - generic [ref=e560]: application/json
+                      - list [ref=e565]:
+                        - listitem [ref=e566]:
+                          - generic [ref=e567]:
+                            - generic [ref=e569]:
+                              - text: name
+                              - button [ref=e570] [cursor=pointer]
+                            - generic [ref=e576]:
+                              - generic [ref=e577]: "Type:"
+                              - text: string
+                            - generic [ref=e578]:
+                              - text: ·
+                              - generic [ref=e579]: "min length:"
+                              - generic [ref=e580]: "1"
+                            - generic [ref=e581]: required
+                        - listitem [ref=e582]:
+                          - generic [ref=e583]:
+                            - generic [ref=e585]:
+                              - text: workoutDays
+                              - button [ref=e586] [cursor=pointer]
+                            - generic [ref=e592]:
+                              - generic [ref=e593]: "Type:"
+                              - text: array object[]
+                            - generic [ref=e594]: required
+                          - button "Show Child Attributes for workoutDays" [ref=e598] [cursor=pointer]:
+                            - text: Show Child Attributes
+                            - generic [ref=e601]: for workoutDays
+                    - generic [ref=e602]:
+                      - generic [ref=e603]: Responses
+                      - list "Responses" [ref=e604]:
+                        - listitem [ref=e605]:
+                          - button "201 Default Response application/json" [ref=e606] [cursor=pointer]:
+                            - generic [ref=e607]: "201"
+                            - paragraph [ref=e614]: Default Response
+                            - generic [ref=e615]: application/json
+                        - listitem [ref=e619]:
+                          - button "400 Default Response application/json" [ref=e620] [cursor=pointer]:
+                            - generic [ref=e621]: "400"
+                            - paragraph [ref=e628]: Default Response
+                            - generic [ref=e629]: application/json
+                        - listitem [ref=e633]:
+                          - button "401 Default Response application/json" [ref=e634] [cursor=pointer]:
+                            - generic [ref=e635]: "401"
+                            - paragraph [ref=e642]: Default Response
+                            - generic [ref=e643]: application/json
+                        - listitem [ref=e647]:
+                          - button "404 Default Response application/json" [ref=e648] [cursor=pointer]:
+                            - generic [ref=e649]: "404"
+                            - paragraph [ref=e656]: Default Response
+                            - generic [ref=e657]: application/json
+                        - listitem [ref=e661]:
+                          - button "500 Default Response application/json" [ref=e662] [cursor=pointer]:
+                            - generic [ref=e663]: "500"
+                            - paragraph [ref=e670]: Default Response
+                            - generic [ref=e671]: application/json
+                  - generic [ref=e676]:
+                    - group "Request Example for post/workout-plans" [ref=e677]:
+                      - generic [ref=e678]:
+                        - generic [ref=e679]:
+                          - generic [ref=e680]: Request Example for
+                          - generic [ref=e681]: post
+                          - generic [ref=e682]: /workout-plans
+                        - button "Shell Curl" [ref=e685] [cursor=pointer]
+                      - generic [ref=e691]:
+                        - code [ref=e694]:
+                          - generic [ref=e695]: curl http://localhost:8080/workout-plans \
+                          - generic [ref=e696]:
+                            - generic [ref=e697]: "--request POST"
+                            - text: \
+                          - generic [ref=e698]: "--header 'Content-Type: application/json' \\"
+                          - generic [ref=e699]: "--data '{"
+                          - generic [ref=e700]: "\"name\": \"\","
+                          - generic [ref=e701]: "\"workoutDays\": ["
+                          - generic [ref=e702]: "{"
+                          - generic [ref=e703]: "\"name\": \"\","
+                          - generic [ref=e704]: "\"coverImageUrl\": \"\","
+                          - generic [ref=e705]: "\"weekDay\": \"MONDAY\","
+                          - generic [ref=e706]: "\"isRest\": false,"
+                          - generic [ref=e707]: "\"estimatedDurationInSeconds\": 1,"
+                          - generic [ref=e708]: "\"exercises\": ["
+                          - generic [ref=e709]: "{"
+                          - generic [ref=e710]: "\"order\": 1,"
+                          - generic [ref=e711]: "\"name\": \"\","
+                          - generic [ref=e712]: "\"sets\": 1,"
+                          - generic [ref=e713]: "\"reps\": 1,"
+                          - generic [ref=e714]: "\"restTimeInSeconds\": 1"
+                          - generic [ref=e715]: "}"
+                          - generic [ref=e716]: "]"
+                          - generic [ref=e717]: "}"
+                          - generic [ref=e718]: "]"
+                          - generic [ref=e719]: "}'"
+                        - button [ref=e720] [cursor=pointer]
+                      - generic [ref=e729]:
+                        - textbox "Ask AI Agent" [ref=e734] [cursor=pointer]
+                        - button "Test Request (post /workout-plans)" [ref=e735] [cursor=pointer]:
+                          - generic [ref=e739]: Test Request
+                          - generic [ref=e740]: (post /workout-plans)
+                    - region [ref=e741]:
+                      - generic [ref=e742]:
+                        - tablist [ref=e744]:
+                          - 'tab "Status: 201" [selected] [ref=e745] [cursor=pointer]':
+                            - generic [ref=e746]:
+                              - generic [ref=e747]: "Status:"
+                              - text: "201"
+                          - 'tab "Status: 400" [ref=e748] [cursor=pointer]':
+                            - generic [ref=e749]:
+                              - generic [ref=e750]: "Status:"
+                              - text: "400"
+                          - 'tab "Status: 401" [ref=e751] [cursor=pointer]':
+                            - generic [ref=e752]:
+                              - generic [ref=e753]: "Status:"
+                              - text: "401"
+                          - 'tab "Status: 404" [ref=e754] [cursor=pointer]':
+                            - generic [ref=e755]:
+                              - generic [ref=e756]: "Status:"
+                              - text: "404"
+                          - 'tab "Status: 500" [ref=e757] [cursor=pointer]':
+                            - generic [ref=e758]:
+                              - generic [ref=e759]: "Status:"
+                              - text: "500"
+                        - generic [ref=e761] [cursor=pointer]:
+                          - text: Show Schema
+                          - checkbox "Show Schema"
+                      - generic [ref=e764]:
+                        - code [ref=e767]:
+                          - text: "{ \"id\": \"123e4567-e89b-12d3-a456-426614174000\", \"name\": \"string\", \"workoutDays\": [ { \"name\": \"string\", \"coverImageUrl\": \"https://example.com\", \"weekDay\": \"MONDAY\", \"isRest\":"
+                          - generic [ref=e768]: "false"
+                          - text: ", \"estimatedDurationInSeconds\": 1, \"exercises\": [ { \"order\": 1, \"name\": \"string\", \"sets\": 1, \"reps\": 1, \"restTimeInSeconds\": 1 } ] } ] }"
+                        - button [ref=e769] [cursor=pointer]
+                      - paragraph [ref=e781]: Default Response
+            - region [ref=e782]:
+              - generic [ref=e783]:
+                - generic [ref=e787]:
+                  - heading "Start a workout session for a specific workout day" [level=3] [ref=e789]
+                  - button "Copy link" [ref=e790] [cursor=pointer]
+                - generic [ref=e795]:
+                  - generic [ref=e797]:
+                    - group "Operation Description"
+                    - generic [ref=e798]:
+                      - generic [ref=e799]: Path Parameters
+                      - list "Path Parameters" [ref=e800]:
+                        - listitem [ref=e801]:
+                          - generic [ref=e804]:
+                            - generic [ref=e806]:
+                              - text: workoutPlanId
+                              - button [ref=e807] [cursor=pointer]
+                            - generic [ref=e813]:
+                              - generic [ref=e814]: "Type:"
+                              - text: string
+                            - generic [ref=e815]:
+                              - text: ·
+                              - code [ref=e816]:
+                                - generic [ref=e817]: "Pattern:"
+                                - text: "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                            - generic [ref=e818]:
+                              - text: ·
+                              - generic [ref=e819]:
+                                - generic [ref=e820]: "Format:"
+                                - text: uuid
+                            - generic [ref=e821]: required
+                        - listitem [ref=e822]:
+                          - generic [ref=e825]:
+                            - generic [ref=e827]:
+                              - text: workoutDayId
+                              - button [ref=e828] [cursor=pointer]
+                            - generic [ref=e834]:
+                              - generic [ref=e835]: "Type:"
+                              - text: string
+                            - generic [ref=e836]:
+                              - text: ·
+                              - code [ref=e837]:
+                                - generic [ref=e838]: "Pattern:"
+                                - text: "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                            - generic [ref=e839]:
+                              - text: ·
+                              - generic [ref=e840]:
+                                - generic [ref=e841]: "Format:"
+                                - text: uuid
+                            - generic [ref=e842]: required
+                    - group "Request Body" [ref=e843]:
+                      - generic [ref=e844]:
+                        - generic [ref=e845]: Body
+                        - generic [ref=e846]:
+                          - generic [ref=e847]: required
+                          - generic [ref=e848]: application/json
+                      - generic [ref=e851]:
+                        - generic [ref=e852]: Empty object
+                        - generic:
+                          - list
+                    - generic [ref=e853]:
+                      - generic [ref=e854]: Responses
+                      - list "Responses" [ref=e855]:
+                        - listitem [ref=e856]:
+                          - button "201 Default Response application/json" [ref=e857] [cursor=pointer]:
+                            - generic [ref=e858]: "201"
+                            - paragraph [ref=e865]: Default Response
+                            - generic [ref=e866]: application/json
+                        - listitem [ref=e870]:
+                          - button "400 Default Response application/json" [ref=e871] [cursor=pointer]:
+                            - generic [ref=e872]: "400"
+                            - paragraph [ref=e879]: Default Response
+                            - generic [ref=e880]: application/json
+                        - listitem [ref=e884]:
+                          - button "401 Default Response application/json" [ref=e885] [cursor=pointer]:
+                            - generic [ref=e886]: "401"
+                            - paragraph [ref=e893]: Default Response
+                            - generic [ref=e894]: application/json
+                        - listitem [ref=e898]:
+                          - button "403 Default Response application/json" [ref=e899] [cursor=pointer]:
+                            - generic [ref=e900]: "403"
+                            - paragraph [ref=e907]: Default Response
+                            - generic [ref=e908]: application/json
+                        - listitem [ref=e912]:
+                          - button "404 Default Response application/json" [ref=e913] [cursor=pointer]:
+                            - generic [ref=e914]: "404"
+                            - paragraph [ref=e921]: Default Response
+                            - generic [ref=e922]: application/json
+                        - listitem [ref=e926]:
+                          - button "409 Default Response application/json" [ref=e927] [cursor=pointer]:
+                            - generic [ref=e928]: "409"
+                            - paragraph [ref=e935]: Default Response
+                            - generic [ref=e936]: application/json
+                        - listitem [ref=e940]:
+                          - button "500 Default Response application/json" [ref=e941] [cursor=pointer]:
+                            - generic [ref=e942]: "500"
+                            - paragraph [ref=e949]: Default Response
+                            - generic [ref=e950]: application/json
+                  - generic [ref=e955]:
+                    - 'group "Request Example for post/workout-plans/{workoutPlanId}/days/{workoutDayId}/sessions" [ref=e956]':
+                      - generic [ref=e957]:
+                        - generic [ref=e958]:
+                          - generic [ref=e959]: Request Example for
+                          - generic [ref=e960]: post
+                          - generic [ref=e961]:
+                            - text: /workout-plans/
+                            - emphasis [ref=e962]: "{workoutPlanId}"
+                            - text: /days/
+                            - emphasis [ref=e963]: "{workoutDayId}"
+                            - text: /sessions
+                        - button "Shell Curl" [ref=e966] [cursor=pointer]
+                      - generic [ref=e972]:
+                        - code [ref=e975]:
+                          - generic [ref=e976]: curl http://localhost:8080/workout-plans/123e4567-e89b-12d3-a456-426614174000/days/123e4567-e89b-12d3-a456-426614174000/sessions \
+                          - generic [ref=e977]:
+                            - generic [ref=e978]: "--request POST"
+                            - text: \
+                          - generic [ref=e979]: "--header 'Content-Type: application/json' \\"
+                          - generic [ref=e980]: "--data '{}'"
+                        - button [ref=e981] [cursor=pointer]
+                      - generic [ref=e990]:
+                        - textbox "Ask AI Agent" [ref=e995] [cursor=pointer]
+                        - 'button "Test Request (post /workout-plans/{workoutPlanId}/days/{workoutDayId}/sessions)" [ref=e996] [cursor=pointer]':
+                          - generic [ref=e1000]: Test Request
+                          - generic [ref=e1001]: "(post /workout-plans/{workoutPlanId}/days/{workoutDayId}/sessions)"
+                    - region [ref=e1002]:
+                      - generic [ref=e1003]:
+                        - tablist [ref=e1005]:
+                          - 'tab "Status: 201" [selected] [ref=e1006] [cursor=pointer]':
+                            - generic [ref=e1007]:
+                              - generic [ref=e1008]: "Status:"
+                              - text: "201"
+                          - 'tab "Status: 400" [ref=e1009] [cursor=pointer]':
+                            - generic [ref=e1010]:
+                              - generic [ref=e1011]: "Status:"
+                              - text: "400"
+                          - 'tab "Status: 401" [ref=e1012] [cursor=pointer]':
+                            - generic [ref=e1013]:
+                              - generic [ref=e1014]: "Status:"
+                              - text: "401"
+                          - 'tab "Status: 403" [ref=e1015] [cursor=pointer]':
+                            - generic [ref=e1016]:
+                              - generic [ref=e1017]: "Status:"
+                              - text: "403"
+                          - 'tab "Status: 404" [ref=e1018] [cursor=pointer]':
+                            - generic [ref=e1019]:
+                              - generic [ref=e1020]: "Status:"
+                              - text: "404"
+                          - 'tab "Status: 409" [ref=e1021] [cursor=pointer]':
+                            - generic [ref=e1022]:
+                              - generic [ref=e1023]: "Status:"
+                              - text: "409"
+                          - 'tab "Status: 500" [ref=e1024] [cursor=pointer]':
+                            - generic [ref=e1025]:
+                              - generic [ref=e1026]: "Status:"
+                              - text: "500"
+                        - generic [ref=e1028] [cursor=pointer]:
+                          - text: Show Schema
+                          - checkbox "Show Schema"
+                      - generic [ref=e1031]:
+                        - code [ref=e1034]: "{ \"userWorkoutSessionId\": \"123e4567-e89b-12d3-a456-426614174000\" }"
+                        - button [ref=e1035] [cursor=pointer]
+                      - paragraph [ref=e1047]: Default Response
+            - region [ref=e1048]:
+              - generic [ref=e1049]:
+                - generic [ref=e1053]:
+                  - heading "Update a specific workout session" [level=3] [ref=e1055]
+                  - button "Copy link" [ref=e1056] [cursor=pointer]
+                - generic [ref=e1061]:
+                  - generic [ref=e1063]:
+                    - group "Operation Description"
+                    - generic [ref=e1064]:
+                      - generic [ref=e1065]: Path Parameters
+                      - list "Path Parameters" [ref=e1066]:
+                        - listitem [ref=e1067]:
+                          - generic [ref=e1070]:
+                            - generic [ref=e1072]:
+                              - text: workoutPlanId
+                              - button [ref=e1073] [cursor=pointer]
+                            - generic [ref=e1079]:
+                              - generic [ref=e1080]: "Type:"
+                              - text: string
+                            - generic [ref=e1081]:
+                              - text: ·
+                              - code [ref=e1082]:
+                                - generic [ref=e1083]: "Pattern:"
+                                - text: "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                            - generic [ref=e1084]:
+                              - text: ·
+                              - generic [ref=e1085]:
+                                - generic [ref=e1086]: "Format:"
+                                - text: uuid
+                            - generic [ref=e1087]: required
+                        - listitem [ref=e1088]:
+                          - generic [ref=e1091]:
+                            - generic [ref=e1093]:
+                              - text: workoutDayId
+                              - button [ref=e1094] [cursor=pointer]
+                            - generic [ref=e1100]:
+                              - generic [ref=e1101]: "Type:"
+                              - text: string
+                            - generic [ref=e1102]:
+                              - text: ·
+                              - code [ref=e1103]:
+                                - generic [ref=e1104]: "Pattern:"
+                                - text: "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                            - generic [ref=e1105]:
+                              - text: ·
+                              - generic [ref=e1106]:
+                                - generic [ref=e1107]: "Format:"
+                                - text: uuid
+                            - generic [ref=e1108]: required
+                        - listitem [ref=e1109]:
+                          - generic [ref=e1112]:
+                            - generic [ref=e1114]:
+                              - text: workoutSessionId
+                              - button [ref=e1115] [cursor=pointer]
+                            - generic [ref=e1121]:
+                              - generic [ref=e1122]: "Type:"
+                              - text: string
+                            - generic [ref=e1123]:
+                              - text: ·
+                              - code [ref=e1124]:
+                                - generic [ref=e1125]: "Pattern:"
+                                - text: "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                            - generic [ref=e1126]:
+                              - text: ·
+                              - generic [ref=e1127]:
+                                - generic [ref=e1128]: "Format:"
+                                - text: uuid
+                            - generic [ref=e1129]: required
+                    - group "Request Body" [ref=e1130]:
+                      - generic [ref=e1131]:
+                        - generic [ref=e1132]: Body
+                        - generic [ref=e1133]:
+                          - generic [ref=e1134]: required
+                          - generic [ref=e1135]: application/json
+                      - list [ref=e1140]:
+                        - listitem [ref=e1141]:
+                          - generic [ref=e1142]:
+                            - generic [ref=e1144]:
+                              - text: completedAt
+                              - button [ref=e1145] [cursor=pointer]
+                            - generic [ref=e1151]:
+                              - generic [ref=e1152]: "Type:"
+                              - text: string
+                            - generic [ref=e1153]:
+                              - text: ·
+                              - code [ref=e1154]:
+                                - generic [ref=e1155]: "Pattern:"
+                                - text: "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d(?::[0-5]\\d(?:\\.\\d+)?)?(?:Z))$"
+                            - generic [ref=e1156]:
+                              - text: ·
+                              - generic [ref=e1157]:
+                                - generic [ref=e1158]: "Format:"
+                                - text: date-time
+                            - generic [ref=e1159]: required
+                          - paragraph [ref=e1162]: the date-time notation as defined by RFC 3339, section 5.6, for example, 2017-07-21T17:32:28Z
+                    - generic [ref=e1163]:
+                      - generic [ref=e1164]: Responses
+                      - list "Responses" [ref=e1165]:
+                        - listitem [ref=e1166]:
+                          - button "200 Default Response application/json" [ref=e1167] [cursor=pointer]:
+                            - generic [ref=e1168]: "200"
+                            - paragraph [ref=e1175]: Default Response
+                            - generic [ref=e1176]: application/json
+                        - listitem [ref=e1180]:
+                          - button "400 Default Response application/json" [ref=e1181] [cursor=pointer]:
+                            - generic [ref=e1182]: "400"
+                            - paragraph [ref=e1189]: Default Response
+                            - generic [ref=e1190]: application/json
+                        - listitem [ref=e1194]:
+                          - button "401 Default Response application/json" [ref=e1195] [cursor=pointer]:
+                            - generic [ref=e1196]: "401"
+                            - paragraph [ref=e1203]: Default Response
+                            - generic [ref=e1204]: application/json
+                        - listitem [ref=e1208]:
+                          - button "403 Default Response application/json" [ref=e1209] [cursor=pointer]:
+                            - generic [ref=e1210]: "403"
+                            - paragraph [ref=e1217]: Default Response
+                            - generic [ref=e1218]: application/json
+                        - listitem [ref=e1222]:
+                          - button "404 Default Response application/json" [ref=e1223] [cursor=pointer]:
+                            - generic [ref=e1224]: "404"
+                            - paragraph [ref=e1231]: Default Response
+                            - generic [ref=e1232]: application/json
+                        - listitem [ref=e1236]:
+                          - button "500 Default Response application/json" [ref=e1237] [cursor=pointer]:
+                            - generic [ref=e1238]: "500"
+                            - paragraph [ref=e1245]: Default Response
+                            - generic [ref=e1246]: application/json
+                  - generic [ref=e1251]:
+                    - 'group "Request Example for patch/workout-plans/{workoutPlanId}/days/{workoutDayId}/sessions/{workoutSessionId}" [ref=e1252]':
+                      - generic [ref=e1253]:
+                        - generic [ref=e1254]:
+                          - generic [ref=e1255]: Request Example for
+                          - generic [ref=e1256]: patch
+                          - generic [ref=e1257]:
+                            - text: /workout-plans/
+                            - emphasis [ref=e1258]: "{workoutPlanId}"
+                            - text: /days/
+                            - emphasis [ref=e1259]: "{workoutDayId}"
+                            - text: /sessions/
+                            - emphasis [ref=e1260]: "{workoutSessionId}"
+                        - button "Shell Curl" [ref=e1263] [cursor=pointer]
+                      - generic [ref=e1269]:
+                        - code [ref=e1272]:
+                          - generic [ref=e1273]: curl http://localhost:8080/workout-plans/123e4567-e89b-12d3-a456-426614174000/days/123e4567-e89b-12d3-a456-426614174000/sessions/123e4567-e89b-12d3-a456-426614174000 \
+                          - generic [ref=e1274]:
+                            - generic [ref=e1275]: "--request PATCH"
+                            - text: \
+                          - generic [ref=e1276]: "--header 'Content-Type: application/json' \\"
+                          - generic [ref=e1277]: "--data '{"
+                          - generic [ref=e1278]: "\"completedAt\": \"\""
+                          - generic [ref=e1279]: "}'"
+                        - button [ref=e1280] [cursor=pointer]
+                      - generic [ref=e1289]:
+                        - textbox "Ask AI Agent" [ref=e1294] [cursor=pointer]
+                        - 'button "Test Request (patch /workout-plans/{workoutPlanId}/days/{workoutDayId}/sessions/{workoutSessionId})" [ref=e1295] [cursor=pointer]':
+                          - generic [ref=e1299]: Test Request
+                          - generic [ref=e1300]: "(patch /workout-plans/{workoutPlanId}/days/{workoutDayId}/sessions/{workoutSessionId})"
+                    - region [ref=e1301]:
+                      - generic [ref=e1302]:
+                        - tablist [ref=e1304]:
+                          - 'tab "Status: 200" [selected] [ref=e1305] [cursor=pointer]':
+                            - generic [ref=e1306]:
+                              - generic [ref=e1307]: "Status:"
+                              - text: "200"
+                          - 'tab "Status: 400" [ref=e1308] [cursor=pointer]':
+                            - generic [ref=e1309]:
+                              - generic [ref=e1310]: "Status:"
+                              - text: "400"
+                          - 'tab "Status: 401" [ref=e1311] [cursor=pointer]':
+                            - generic [ref=e1312]:
+                              - generic [ref=e1313]: "Status:"
+                              - text: "401"
+                          - 'tab "Status: 403" [ref=e1314] [cursor=pointer]':
+                            - generic [ref=e1315]:
+                              - generic [ref=e1316]: "Status:"
+                              - text: "403"
+                          - 'tab "Status: 404" [ref=e1317] [cursor=pointer]':
+                            - generic [ref=e1318]:
+                              - generic [ref=e1319]: "Status:"
+                              - text: "404"
+                          - 'tab "Status: 500" [ref=e1320] [cursor=pointer]':
+                            - generic [ref=e1321]:
+                              - generic [ref=e1322]: "Status:"
+                              - text: "500"
+                        - generic [ref=e1324] [cursor=pointer]:
+                          - text: Show Schema
+                          - checkbox "Show Schema"
+                      - generic [ref=e1327]:
+                        - code [ref=e1330]: "{ \"id\": \"123e4567-e89b-12d3-a456-426614174000\", \"startedAt\": \"2026-08-05T05:52:45.480Z\", \"completedAt\": \"2026-08-05T05:52:45.480Z\" }"
+                        - button [ref=e1331] [cursor=pointer]
+                      - paragraph [ref=e1343]: Default Response
+        - region [ref=e240]:
+          - generic [ref=e243]:
+            - heading "Home (Collapsed)" [level=2] [ref=e245]:
+              - text: Home
+              - generic [ref=e246]: (Collapsed)
+            - button "Copy link" [ref=e247] [cursor=pointer]
+          - group "Home Operations" [ref=e256]:
+            - generic [ref=e258]:
+              - generic [ref=e259]: Home
+              - text: Operations
+            - list "Home endpoints" [ref=e261]:
+              - listitem [ref=e262]:
+                - generic [ref=e263] [cursor=pointer]:
+                  - generic [ref=e264]: get
+                  - generic [ref=e265]: "/home/{date}"
+          - button "Show all Home endpoints" [ref=e266] [cursor=pointer]: Show More
+        - region [ref=e271]:
+          - generic [ref=e272]:
+            - generic [ref=e276]:
+              - heading / [level=3] [ref=e278]
+              - button "Copy link" [ref=e279] [cursor=pointer]
+            - generic [ref=e284]:
+              - generic [ref=e286]:
+                - group "Operation Description"
+                - generic [ref=e287]:
+                  - generic [ref=e288]: Responses
+                  - list "Responses" [ref=e289]:
+                    - listitem [ref=e290]:
+                      - generic [ref=e292]:
+                        - generic [ref=e295]:
+                          - text: "200"
+                          - button [ref=e296] [cursor=pointer]
+                        - paragraph [ref=e303]: Default Response
+              - group "Request Example for get/" [ref=e306]:
+                - generic [ref=e307]:
+                  - generic [ref=e308]:
+                    - generic [ref=e309]: Request Example for
+                    - generic [ref=e310]: get
+                    - generic [ref=e311]: /
+                  - button "Shell Curl" [ref=e314] [cursor=pointer]
+                - generic [ref=e320]:
+                  - code [ref=e323]:
+                    - generic [ref=e324]: curl http://localhost:8080/
+                  - button [ref=e325] [cursor=pointer]
+                - generic [ref=e334]:
+                  - textbox "Ask AI Agent" [ref=e339] [cursor=pointer]
+                  - button "Test Request (get /)" [ref=e340] [cursor=pointer]:
+                    - generic [ref=e344]: Test Request
+                    - generic [ref=e345]: (get /)
+        - region [ref=e347]:
+          - generic [ref=e348]:
+            - generic [ref=e352]:
+              - 'heading "/api/auth/{*}" [level=3] [ref=e354]'
+              - button "Copy link" [ref=e355] [cursor=pointer]
+            - generic [ref=e360]:
+              - generic [ref=e362]:
+                - group "Operation Description"
+                - generic [ref=e363]:
+                  - generic [ref=e364]: Path Parameters
+                  - list "Path Parameters" [ref=e365]:
+                    - listitem [ref=e366]:
+                      - generic [ref=e369]:
+                        - generic [ref=e371]:
+                          - text: "*"
+                          - button [ref=e372] [cursor=pointer]
+                        - generic [ref=e378]:
+                          - generic [ref=e379]: "Type:"
+                          - text: string
+                        - generic [ref=e380]: required
+                - generic [ref=e381]:
+                  - generic [ref=e382]: Responses
+                  - list "Responses" [ref=e383]:
+                    - listitem [ref=e384]:
+                      - generic [ref=e386]:
+                        - generic [ref=e389]:
+                          - text: "200"
+                          - button [ref=e390] [cursor=pointer]
+                        - paragraph [ref=e397]: Default Response
+              - 'group "Request Example for get/api/auth/{*}" [ref=e400]':
+                - generic [ref=e401]:
+                  - generic [ref=e402]:
+                    - generic [ref=e403]: Request Example for
+                    - generic [ref=e404]: get
+                    - generic [ref=e405]:
+                      - text: /api/auth/
+                      - emphasis [ref=e406]: "{*}"
+                  - button "Shell Curl" [ref=e409] [cursor=pointer]
+                - generic [ref=e415]:
+                  - code [ref=e418]:
+                    - generic [ref=e419]: "curl 'http://localhost:8080/api/auth/{*}'"
+                  - button [ref=e420] [cursor=pointer]
+                - generic [ref=e429]:
+                  - textbox "Ask AI Agent" [ref=e434] [cursor=pointer]
+                  - 'button "Test Request (get /api/auth/{*})" [ref=e435] [cursor=pointer]':
+                    - generic [ref=e439]: Test Request
+                    - generic [ref=e440]: "(get /api/auth/{*})"
+        - region [ref=e442]:
+          - generic [ref=e443]:
+            - generic [ref=e447]:
+              - 'heading "/api/auth/{*}" [level=3] [ref=e449]'
+              - button "Copy link" [ref=e450] [cursor=pointer]
+            - generic [ref=e455]:
+              - generic [ref=e457]:
+                - group "Operation Description"
+                - generic [ref=e458]:
+                  - generic [ref=e459]: Path Parameters
+                  - list "Path Parameters" [ref=e460]:
+                    - listitem [ref=e461]:
+                      - generic [ref=e464]:
+                        - generic [ref=e466]:
+                          - text: "*"
+                          - button [ref=e467] [cursor=pointer]
+                        - generic [ref=e473]:
+                          - generic [ref=e474]: "Type:"
+                          - text: string
+                        - generic [ref=e475]: required
+                - generic [ref=e476]:
+                  - generic [ref=e477]: Responses
+                  - list "Responses" [ref=e478]:
+                    - listitem [ref=e479]:
+                      - generic [ref=e481]:
+                        - generic [ref=e484]:
+                          - text: "200"
+                          - button [ref=e485] [cursor=pointer]
+                        - paragraph [ref=e492]: Default Response
+              - 'group "Request Example for post/api/auth/{*}" [ref=e495]':
+                - generic [ref=e496]:
+                  - generic [ref=e497]:
+                    - generic [ref=e498]: Request Example for
+                    - generic [ref=e499]: post
+                    - generic [ref=e500]:
+                      - text: /api/auth/
+                      - emphasis [ref=e501]: "{*}"
+                  - button "Shell Curl" [ref=e504] [cursor=pointer]
+                - generic [ref=e510]:
+                  - code [ref=e513]:
+                    - generic [ref=e514]: "curl 'http://localhost:8080/api/auth/{*}' \\"
+                    - generic [ref=e515]: "--request POST"
+                  - button [ref=e517] [cursor=pointer]
+                - generic [ref=e526]:
+                  - textbox "Ask AI Agent" [ref=e531] [cursor=pointer]
+                  - 'button "Test Request (post /api/auth/{*})" [ref=e532] [cursor=pointer]':
+                    - generic [ref=e536]: Test Request
+                    - generic [ref=e537]: "(post /api/auth/{*})"
+  - region "Notifications alt+T":
+    - list
