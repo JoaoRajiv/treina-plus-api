@@ -12,6 +12,7 @@ import {
 } from "fastify-type-provider-zod";
 import { auth } from "./lib/auth.js";
 import { homeRoutes } from "./routes/home.js";
+import { statsRoutes } from "./routes/stats.js";
 import { workoutPlanRoutes } from "./routes/workout-plan.js";
 
 const app = Fastify({
@@ -68,6 +69,7 @@ await app.register(fastifyApiReference, {
 // ROUTES
 await app.register(workoutPlanRoutes);
 await app.register(homeRoutes);
+await app.register(statsRoutes, { prefix: "/stats" });
 
 app.get("/", async (_request, reply) => {
 	return reply.redirect("/docs/");

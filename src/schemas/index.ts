@@ -29,6 +29,83 @@ export const WorkoutPlanSchema = z.object({
 	),
 });
 
+export const GetWorkoutPlanParamsSchema = z.object({
+	id: z.uuid(),
+});
+
+export const GetWorkoutPlanResponseSchema = z.object({
+	id: z.uuid(),
+	name: z.string(),
+	workoutDays: z.array(
+		z.object({
+			id: z.uuid(),
+			weekDay: z.enum(WeekDay),
+			name: z.string(),
+			isRest: z.boolean(),
+			coverImageUrl: z.url().optional(),
+			estimatedDurationInSeconds: z.number().int(),
+			exercisesCount: z.number().int().min(0),
+		}),
+	),
+});
+
+export const GetWorkoutDayParamsSchema = z.object({
+	workoutPlanId: z.uuid(),
+	workoutDayId: z.uuid(),
+});
+
+export const GetWorkoutDayResponseSchema = z.object({
+	id: z.uuid(),
+	name: z.string(),
+	isRest: z.boolean(),
+	coverImageUrl: z.url().optional(),
+	estimatedDurationInSeconds: z.number().int(),
+	weekDay: z.enum(WeekDay),
+	exercises: z.array(
+		z.object({
+			id: z.uuid(),
+			name: z.string(),
+			order: z.number().int(),
+			workoutDayId: z.uuid(),
+			sets: z.number().int(),
+			reps: z.number().int(),
+			restTimeInSeconds: z.number().int(),
+		}),
+	),
+	sessions: z.array(
+		z.object({
+			id: z.uuid(),
+			workoutDayId: z.uuid(),
+			startedAt: z.string().optional(),
+			completedAt: z.string().optional(),
+		}),
+	),
+});
+
+export const StatsQuerySchema = z
+	.object({
+		from: z.iso.date(),
+		to: z.iso.date(),
+	})
+	.refine((data) => data.from <= data.to, {
+		path: ["to"],
+		message: "The to date must be after or equal to the from date",
+	});
+
+export const StatsResponseSchema = z.object({
+	workoutStreak: z.number().int().min(0),
+	consistencyByDay: z.record(
+		z.iso.date(),
+		z.object({
+			workoutDayCompleted: z.boolean(),
+			workoutDayStarted: z.boolean(),
+		}),
+	),
+	completedWorkoutsCount: z.number().int().min(0),
+	conclusionRate: z.number().min(0).max(1),
+	totalTimeInSeconds: z.number().int().min(0),
+});
+
 export const StartWorkoutSessionBodySchema = z.object({});
 
 export const StartWorkoutSessionQuerySchema = z.object({});
@@ -78,7 +155,7 @@ export const HomeResponseSchema = z.object({
 	}),
 	workoutStreak: z.number().int().min(0),
 	consistencyByDay: z.record(
-		z.string(),
+		z.iso.date(),
 		z.object({
 			workoutDayCompleted: z.boolean(),
 			workoutDayStarted: z.boolean(),
