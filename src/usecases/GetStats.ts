@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc.js";
-import { WeekDay } from "../generated/prisma/enums.js";
 import { prisma } from "../lib/db.js";
+import { calculateWorkoutStreak } from "../utils/workoutStreak.js";
 
 dayjs.extend(utc);
 
@@ -25,16 +25,6 @@ interface OutputDto {
 	totalTimeInSeconds: number;
 }
 
-const weekDays: WeekDay[] = [
-	WeekDay.SUNDAY,
-	WeekDay.MONDAY,
-	WeekDay.TUESDAY,
-	WeekDay.WEDNESDAY,
-	WeekDay.THURSDAY,
-	WeekDay.FRIDAY,
-	WeekDay.SATURDAY,
-];
-
 export class GetStats {
 	async execute(dto: InputDto): Promise<OutputDto> {
 		const from = dayjs.utc(dto.from).startOf("day");
@@ -55,9 +45,7 @@ export class GetStats {
 				startedAt: true,
 				completedAt: true,
 				workoutDay: {
-					select: {
-						weekDay: true,
-					},
+					select: { isRest: true },
 				},
 			},
 		});
@@ -82,7 +70,9 @@ export class GetStats {
 			if (session.completedAt) {
 				dayStats.workoutDayCompleted = true;
 				completedWorkoutsCount++;
-				completedDates.add(dateKey);
+				if (!session.workoutDay.isRest) {
+					completedDates.add(dateKey);
+				}
 				totalTimeInSeconds += Math.max(
 					0,
 					Math.floor(
@@ -97,6 +87,7 @@ export class GetStats {
 			where: { userId: dto.userId },
 			select: {
 				workoutDays: {
+					where: { isRest: false },
 					select: { weekDay: true },
 				},
 			},
@@ -107,24 +98,12 @@ export class GetStats {
 			),
 		);
 
-		let workoutStreak = 0;
-		let streakDate = from.startOf("day");
-		const lastDate = to.startOf("day");
-
-		while (streakDate.isBefore(lastDate) || streakDate.isSame(lastDate)) {
-			const dateKey = streakDate.format("YYYY-MM-DD");
-			const weekDay = weekDays[streakDate.day()];
-
-			if (scheduledWeekDays.has(weekDay)) {
-				if (!completedDates.has(dateKey)) {
-					workoutStreak = 0;
-				} else {
-					workoutStreak++;
-				}
-			}
-
-			streakDate = streakDate.add(1, "day");
-		}
+		const workoutStreak = calculateWorkoutStreak({
+			from,
+			to,
+			completedDates,
+			scheduledWeekDays,
+		});
 
 		return {
 			workoutStreak,

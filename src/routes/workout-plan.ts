@@ -14,6 +14,8 @@ import {
 	GetWorkoutDayResponseSchema,
 	GetWorkoutPlanParamsSchema,
 	GetWorkoutPlanResponseSchema,
+	GetWorkoutPlansQuerySchema,
+	GetWorkoutPlansResponseSchema,
 	StartWorkoutSessionBodySchema,
 	StartWorkoutSessionParamsSchema,
 	StartWorkoutSessionQuerySchema,
@@ -27,10 +29,54 @@ import {
 import { CreateWorkoutPlan } from "../usecases/CreateWorkoutPlan.js";
 import { GetWorkoutDay } from "../usecases/GetWorkoutDay.js";
 import { GetWorkoutPlan } from "../usecases/GetWorkoutPlan.js";
+import { GetWorkoutPlans } from "../usecases/GetWorkoutPlans.js";
 import { StartWorkoutSession } from "../usecases/StartWorkoutSession.js";
 import { UpdateWorkoutSession } from "../usecases/UpdateWorkoutSession.js";
 
 export const workoutPlanRoutes = async (app: FastifyInstance) => {
+	app.withTypeProvider<ZodTypeProvider>().route({
+		method: "GET",
+		url: "/workout-plans",
+		schema: {
+			tags: ["Workout Plan"],
+			summary: "List workout plans with days and exercises",
+			querystring: GetWorkoutPlansQuerySchema,
+			response: {
+				200: GetWorkoutPlansResponseSchema,
+				401: ErrorSchema,
+				500: ErrorSchema,
+			},
+		},
+		async handler(request, reply) {
+			try {
+				const session = await auth.api.getSession({
+					headers: fromNodeHeaders(request.headers),
+				});
+
+				if (!session) {
+					return reply.status(401).send({
+						error: "Unauthorized",
+						code: "UNAUTHORIZED",
+					});
+				}
+
+				const getWorkoutPlans = new GetWorkoutPlans();
+				const result = await getWorkoutPlans.execute({
+					userId: session.user.id,
+					active: request.query.active,
+				});
+
+				return reply.status(200).send(result);
+			} catch (error) {
+				app.log.error(error);
+				return reply.status(500).send({
+					error: "Internal server error",
+					code: "INTERNAL_SERVER_ERROR",
+				});
+			}
+		},
+	});
+
 	app.withTypeProvider<ZodTypeProvider>().route({
 		method: "POST",
 		url: "/workout-plans",

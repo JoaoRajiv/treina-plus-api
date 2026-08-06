@@ -1,8 +1,12 @@
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc.js";
 import { NotFoundError } from "../errors/index.js";
-import { WeekDay } from "../generated/prisma/enums.js";
+import type { WeekDay } from "../generated/prisma/enums.js";
 import { prisma } from "../lib/db.js";
+import {
+	calculateCurrentWorkoutStreak,
+	getWeekDay,
+} from "../utils/workoutStreak.js";
 
 dayjs.extend(utc);
 
@@ -33,20 +37,10 @@ interface OutputDto {
 	>;
 }
 
-const weekDays: WeekDay[] = [
-	WeekDay.SUNDAY,
-	WeekDay.MONDAY,
-	WeekDay.TUESDAY,
-	WeekDay.WEDNESDAY,
-	WeekDay.THURSDAY,
-	WeekDay.FRIDAY,
-	WeekDay.SATURDAY,
-];
-
 export class GetHomeData {
 	async execute(dto: InputDto): Promise<OutputDto> {
 		const requestedDate = dayjs.utc(dto.date);
-		const requestedWeekDay = weekDays[requestedDate.day()];
+		const requestedWeekDay = getWeekDay(requestedDate);
 
 		const workoutPlan = await prisma.workoutPlan.findFirst({
 			where: {
@@ -109,10 +103,14 @@ export class GetHomeData {
 
 		const completedSessions = await prisma.workoutSession.findMany({
 			where: {
-				...userSessionWhere,
+				workoutDay: {
+					isRest: false,
+					workoutPlan: { userId: dto.userId },
+				},
 				startedAt: { lte: requestedDate.endOf("day").toDate() },
 				completedAt: { not: null },
 			},
+			orderBy: { startedAt: "asc" },
 			select: { startedAt: true },
 		});
 
@@ -143,22 +141,19 @@ export class GetHomeData {
 			),
 		);
 		const scheduledWeekDays = new Set(
-			workoutPlan.workoutDays.map((workoutDay) => workoutDay.weekDay),
+			workoutPlan.workoutDays
+				.filter((workoutDay) => !workoutDay.isRest)
+				.map((workoutDay) => workoutDay.weekDay),
 		);
-		let workoutStreak = 0;
-		let streakDate = requestedDate;
-
-		while (true) {
-			const streakDateKey = streakDate.format("YYYY-MM-DD");
-			const streakWeekDay = weekDays[streakDate.day()];
-
-			if (scheduledWeekDays.has(streakWeekDay)) {
-				if (!completedDates.has(streakDateKey)) break;
-				workoutStreak++;
-			}
-
-			streakDate = streakDate.subtract(1, "day");
-		}
+		const earliestCompletedDate = completedSessions.at(-1)?.startedAt;
+		const workoutStreak = calculateCurrentWorkoutStreak({
+			date: requestedDate,
+			earliestDate: earliestCompletedDate
+				? dayjs.utc(earliestCompletedDate)
+				: undefined,
+			completedDates,
+			scheduledWeekDays,
+		});
 
 		return {
 			activeWorkoutPlanId: workoutPlan.id,
