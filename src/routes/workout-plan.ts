@@ -1,12 +1,7 @@
 import { fromNodeHeaders } from "better-auth/node";
 import type { FastifyInstance } from "fastify";
 import type { ZodTypeProvider } from "fastify-type-provider-zod";
-import {
-	ForbiddenError,
-	NotFoundError,
-	WorkoutPlanNotActiveError,
-	WorkoutSessionAlreadyStartedError,
-} from "../errors/index.js";
+import { sendError, UnauthorizedError } from "../errors/index.js";
 import { auth } from "../lib/auth.js";
 import {
 	ErrorSchema,
@@ -54,10 +49,7 @@ export const workoutPlanRoutes = async (app: FastifyInstance) => {
 				});
 
 				if (!session) {
-					return reply.status(401).send({
-						error: "Unauthorized",
-						code: "UNAUTHORIZED",
-					});
+					throw new UnauthorizedError("Unauthorized");
 				}
 
 				const getWorkoutPlans = new GetWorkoutPlans();
@@ -69,10 +61,7 @@ export const workoutPlanRoutes = async (app: FastifyInstance) => {
 				return reply.status(200).send(result);
 			} catch (error) {
 				app.log.error(error);
-				return reply.status(500).send({
-					error: "Internal server error",
-					code: "INTERNAL_SERVER_ERROR",
-				});
+				return sendError(reply, error);
 			}
 		},
 	});
@@ -98,10 +87,7 @@ export const workoutPlanRoutes = async (app: FastifyInstance) => {
 					headers: fromNodeHeaders(request.headers),
 				});
 				if (!session) {
-					return reply.status(401).send({
-						error: "Unauthorized",
-						code: "UNAUTHORIZED",
-					});
+					throw new UnauthorizedError("Unauthorized");
 				}
 				const createWorkoutPlan = new CreateWorkoutPlan();
 				const result = await createWorkoutPlan.execute({
@@ -112,16 +98,7 @@ export const workoutPlanRoutes = async (app: FastifyInstance) => {
 				return reply.status(201).send(result);
 			} catch (error) {
 				app.log.error(error);
-				if (error instanceof NotFoundError) {
-					return reply.status(404).send({
-						error: error.message,
-						code: "NOT_FOUND",
-					});
-				}
-				return reply.status(500).send({
-					error: "Internal server error",
-					code: "INTERNAL_SERVER_ERROR",
-				});
+				return sendError(reply, error);
 			}
 		},
 	});
@@ -148,10 +125,7 @@ export const workoutPlanRoutes = async (app: FastifyInstance) => {
 				});
 
 				if (!session) {
-					return reply.status(401).send({
-						error: "Unauthorized",
-						code: "UNAUTHORIZED",
-					});
+					throw new UnauthorizedError("Unauthorized");
 				}
 
 				const getWorkoutDay = new GetWorkoutDay();
@@ -165,24 +139,7 @@ export const workoutPlanRoutes = async (app: FastifyInstance) => {
 			} catch (error) {
 				app.log.error(error);
 
-				if (error instanceof ForbiddenError) {
-					return reply.status(403).send({
-						error: error.message,
-						code: "FORBIDDEN",
-					});
-				}
-
-				if (error instanceof NotFoundError) {
-					return reply.status(404).send({
-						error: error.message,
-						code: "NOT_FOUND",
-					});
-				}
-
-				return reply.status(500).send({
-					error: "Internal server error",
-					code: "INTERNAL_SERVER_ERROR",
-				});
+				return sendError(reply, error);
 			}
 		},
 	});
@@ -209,10 +166,7 @@ export const workoutPlanRoutes = async (app: FastifyInstance) => {
 				});
 
 				if (!session) {
-					return reply.status(401).send({
-						error: "Unauthorized",
-						code: "UNAUTHORIZED",
-					});
+					throw new UnauthorizedError("Unauthorized");
 				}
 
 				const getWorkoutPlan = new GetWorkoutPlan();
@@ -225,24 +179,7 @@ export const workoutPlanRoutes = async (app: FastifyInstance) => {
 			} catch (error) {
 				app.log.error(error);
 
-				if (error instanceof ForbiddenError) {
-					return reply.status(403).send({
-						error: error.message,
-						code: "FORBIDDEN",
-					});
-				}
-
-				if (error instanceof NotFoundError) {
-					return reply.status(404).send({
-						error: error.message,
-						code: "NOT_FOUND",
-					});
-				}
-
-				return reply.status(500).send({
-					error: "Internal server error",
-					code: "INTERNAL_SERVER_ERROR",
-				});
+				return sendError(reply, error);
 			}
 		},
 	});
@@ -273,10 +210,7 @@ export const workoutPlanRoutes = async (app: FastifyInstance) => {
 				});
 
 				if (!session) {
-					return reply.status(401).send({
-						error: "Unauthorized",
-						code: "UNAUTHORIZED",
-					});
+					throw new UnauthorizedError("Unauthorized");
 				}
 
 				const startWorkoutSession = new StartWorkoutSession();
@@ -290,38 +224,7 @@ export const workoutPlanRoutes = async (app: FastifyInstance) => {
 			} catch (error) {
 				app.log.error(error);
 
-				if (error instanceof ForbiddenError) {
-					return reply.status(403).send({
-						error: error.message,
-						code: "FORBIDDEN",
-					});
-				}
-
-				if (error instanceof NotFoundError) {
-					return reply.status(404).send({
-						error: error.message,
-						code: "NOT_FOUND",
-					});
-				}
-
-				if (error instanceof WorkoutPlanNotActiveError) {
-					return reply.status(409).send({
-						error: error.message,
-						code: "WORKOUT_PLAN_NOT_ACTIVE",
-					});
-				}
-
-				if (error instanceof WorkoutSessionAlreadyStartedError) {
-					return reply.status(409).send({
-						error: error.message,
-						code: "WORKOUT_SESSION_ALREADY_STARTED",
-					});
-				}
-
-				return reply.status(500).send({
-					error: "Internal server error",
-					code: "INTERNAL_SERVER_ERROR",
-				});
+				return sendError(reply, error);
 			}
 		},
 	});
@@ -351,10 +254,7 @@ export const workoutPlanRoutes = async (app: FastifyInstance) => {
 				});
 
 				if (!session) {
-					return reply.status(401).send({
-						error: "Unauthorized",
-						code: "UNAUTHORIZED",
-					});
+					throw new UnauthorizedError("Unauthorized");
 				}
 
 				const updateWorkoutSession = new UpdateWorkoutSession();
@@ -370,24 +270,7 @@ export const workoutPlanRoutes = async (app: FastifyInstance) => {
 			} catch (error) {
 				app.log.error(error);
 
-				if (error instanceof ForbiddenError) {
-					return reply.status(403).send({
-						error: error.message,
-						code: "FORBIDDEN",
-					});
-				}
-
-				if (error instanceof NotFoundError) {
-					return reply.status(404).send({
-						error: error.message,
-						code: "NOT_FOUND",
-					});
-				}
-
-				return reply.status(500).send({
-					error: "Internal server error",
-					code: "INTERNAL_SERVER_ERROR",
-				});
+				return sendError(reply, error);
 			}
 		},
 	});

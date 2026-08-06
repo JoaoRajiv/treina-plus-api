@@ -1,9 +1,31 @@
 import z from "zod";
+import { ERROR_CODES } from "../errors/index.js";
 import { WeekDay } from "../generated/prisma/enums.js";
 
 export const ErrorSchema = z.object({
 	error: z.string(),
-	code: z.string(),
+	code: z.enum(ERROR_CODES),
+});
+
+export const UserTrainDataResponseSchema = z.object({
+	userId: z.uuid(),
+	userName: z.string(),
+	weightInGrams: z.number(),
+	heightInCentimeters: z.number(),
+	age: z.number(),
+	bodyFatPercentage: z.number(),
+});
+
+export const GetUserTrainDataResponseSchema =
+	UserTrainDataResponseSchema.nullable();
+export const UpsertUserTrainDataResponseSchema =
+	UserTrainDataResponseSchema.omit({ userName: true });
+
+export const UpsertUserTrainDataBodySchema = z.object({
+	weightInGrams: z.number().int().positive().max(500000),
+	heightInCentimeters: z.number().int().positive().max(300),
+	age: z.number().int().positive().max(150),
+	bodyFatPercentage: z.number().int().min(0).max(100),
 });
 
 export const WorkoutPlanSchema = z.object({

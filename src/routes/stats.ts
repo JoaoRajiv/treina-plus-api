@@ -1,6 +1,7 @@
 import { fromNodeHeaders } from "better-auth/node";
 import type { FastifyInstance } from "fastify";
 import type { ZodTypeProvider } from "fastify-type-provider-zod";
+import { sendError, UnauthorizedError } from "../errors/index.js";
 import { auth } from "../lib/auth.js";
 import {
 	ErrorSchema,
@@ -30,10 +31,7 @@ export const statsRoutes = async (app: FastifyInstance) => {
 				});
 
 				if (!session) {
-					return reply.status(401).send({
-						error: "Unauthorized",
-						code: "UNAUTHORIZED",
-					});
+					throw new UnauthorizedError("Unauthorized");
 				}
 
 				const getStats = new GetStats();
@@ -46,10 +44,7 @@ export const statsRoutes = async (app: FastifyInstance) => {
 				return reply.status(200).send(result);
 			} catch (error) {
 				app.log.error(error);
-				return reply.status(500).send({
-					error: "Internal server error",
-					code: "INTERNAL_SERVER_ERROR",
-				});
+				return sendError(reply, error);
 			}
 		},
 	});

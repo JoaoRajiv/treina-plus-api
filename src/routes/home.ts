@@ -1,7 +1,7 @@
 import { fromNodeHeaders } from "better-auth/node";
 import type { FastifyInstance } from "fastify";
 import type { ZodTypeProvider } from "fastify-type-provider-zod";
-import { NotFoundError } from "../errors/index.js";
+import { sendError, UnauthorizedError } from "../errors/index.js";
 import { auth } from "../lib/auth.js";
 import {
 	ErrorSchema,
@@ -32,10 +32,7 @@ export const homeRoutes = async (app: FastifyInstance) => {
 				});
 
 				if (!session) {
-					return reply.status(401).send({
-						error: "Unauthorized",
-						code: "UNAUTHORIZED",
-					});
+					throw new UnauthorizedError("Unauthorized");
 				}
 
 				const getHome = new GetHomeData();
@@ -48,17 +45,7 @@ export const homeRoutes = async (app: FastifyInstance) => {
 			} catch (error) {
 				app.log.error(error);
 
-				if (error instanceof NotFoundError) {
-					return reply.status(404).send({
-						error: error.message,
-						code: "NOT_FOUND",
-					});
-				}
-
-				return reply.status(500).send({
-					error: "Internal server error",
-					code: "INTERNAL_SERVER_ERROR",
-				});
+				return sendError(reply, error);
 			}
 		},
 	});

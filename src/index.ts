@@ -10,8 +10,10 @@ import {
 	validatorCompiler,
 	type ZodTypeProvider,
 } from "fastify-type-provider-zod";
+import { sendError } from "./errors/index.js";
 import { auth } from "./lib/auth.js";
 import { homeRoutes } from "./routes/home.js";
+import { meRoutes } from "./routes/me.js";
 import { statsRoutes } from "./routes/stats.js";
 import { workoutPlanRoutes } from "./routes/workout-plan.js";
 
@@ -21,6 +23,10 @@ const app = Fastify({
 
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
+app.setErrorHandler((error, _request, reply) => {
+	app.log.error(error);
+	return sendError(reply, error);
+});
 
 await app.register(fastifySwagger, {
 	openapi: {
@@ -67,8 +73,9 @@ await app.register(fastifyApiReference, {
 });
 
 // ROUTES
-await app.register(workoutPlanRoutes);
-await app.register(homeRoutes);
+await app.register(workoutPlanRoutes, { prefix: "/workout-plans" });
+await app.register(homeRoutes, { prefix: "/" });
+await app.register(meRoutes, { prefix: "/me" });
 await app.register(statsRoutes, { prefix: "/stats" });
 
 app.get("/", async (_request, reply) => {
@@ -86,9 +93,19 @@ app.withTypeProvider<ZodTypeProvider>().route({
 	},
 });
 
+app.get("/api/auth/open-api/generate-schema", {
+	schema: { hide: true },
+	async handler(_request, reply) {
+		const schema = await auth.api.generateOpenAPISchema();
+		schema.servers = [{ url: "/api/auth" }];
+		return reply.send(schema);
+	},
+});
+
 app.route({
 	method: ["GET", "POST"],
 	url: "/api/auth/*",
+	schema: { hide: true },
 	async handler(request, reply) {
 		try {
 			// Construct request URL
